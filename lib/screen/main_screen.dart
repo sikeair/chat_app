@@ -511,8 +511,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               duration: const Duration(milliseconds: 500),
               curve: Curves.easeIn,
               top: isSignupScreen
-                  ? MediaQuery.of(context).size.height - 255
-                  : MediaQuery.of(context).size.height - 335,
+                  ? MediaQuery.of(context).size.height - 105
+                  : MediaQuery.of(context).size.height - 145,
               right: 0,
               left: 0,
               child: Column(
