@@ -1,4 +1,5 @@
 import 'package:chat_app/chatting/chat/message.dart';
+import 'package:chat_app/chatting/chat/new_message.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -52,7 +53,10 @@ class _ChatScreenState extends State<ChatScreen> {
       body: Container(
         child: Column(
           children: const [
-            Expanded(child: Messages()),
+            Expanded(
+              child: Messages(),
+            ),
+            NewMessage(),
           ],
         ),
       ),
