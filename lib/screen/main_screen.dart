@@ -500,15 +500,20 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             final refImage = FirebaseStorage.instance
                                 .ref()
                                 .child('picked_image')
-                                .child("${newUser.user!.uid}.png");
+                                // ignore: prefer_interpolation_to_compose_strings
+                                .child(newUser.user!.uid + '.png');
 
                             await refImage.putFile(userPickedImage!);
+                            final url = await refImage.getDownloadURL();
 
                             await FirebaseFirestore.instance
                                 .collection('user')
                                 .doc(newUser.user!.uid)
-                                .set(
-                                    {'userName': userName, 'email': userEmail});
+                                .set({
+                              'userName': userName,
+                              'email': userEmail,
+                              'picked_image': url
+                            });
                             if (newUser.user != null) {
                               Navigator.push(
                                 context,
